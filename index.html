@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Para alguien especial</title>
+<title>Para ti</title>
 
 <style>
 
@@ -38,7 +38,7 @@ from{opacity:0.2;}
 to{opacity:1;}
 }
 
-/* inicio */
+/* pantalla inicial */
 
 .inicio{
 z-index:10;
@@ -121,7 +121,7 @@ line-height:1.7;
 
 <div class="inicio" id="inicio">
 
-<h1>💌 Tengo algo especial para ti</h1>
+<h1>💌 Tengo algo para ti</h1>
 
 <button onclick="abrirCarta()">Abrir mensaje</button>
 
@@ -129,7 +129,7 @@ line-height:1.7;
 
 <div class="carta" id="carta">
 
-<h1>Para alguien muy especial ❤️</h1>
+<h1>Para ti ❤️</h1>
 
 <p>
 A veces la vida nos regala personas  
@@ -139,91 +139,66 @@ en lo más bonito de nuestros días.
 </p>
 
 <p>
-Tú eres una de esas personas.  
-Alguien que con su sonrisa  
-puede cambiar un momento cualquiera  
-en algo especial.
+Tú eres alguien muy importante para mí.  
+Con tu forma de ser logras iluminar momentos  
+que antes parecían simples.
 </p>
 
 <p>
-Gracias por lo que haces por mí,  
-por tu tiempo, tu cariño  
-y por cada pequeño detalle  
-que demuestra lo increíble que eres.
+Gracias por todo lo que haces,  
+por tu cariño, tu tiempo  
+y por cada pequeño detalle.
 </p>
 
 <p>
-Tal vez las palabras nunca alcancen  
-para explicar todo lo que siento,
-pero hay algo que quiero que sepas:
+Tal vez las palabras no alcancen  
+para explicar lo que siento,
+pero quiero que sepas algo muy importante:
 </p>
 
 <h2>Te quiero mucho ❤️</h2>
 
 <p>
 Y agradezco al destino  
-por haber puesto a alguien  
-tan especial en mi camino.
+por haberte puesto en mi camino.
 </p>
 
 </div>
 
 <audio id="musica" loop>
-<source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+<source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_6f9e4f6d7a.mp3?filename=romantic-piano-110622.mp3" type="audio/mpeg">
 </audio>
 
 <script>
 
-/* abrir carta */
-
 function abrirCarta(){
-
 document.getElementById("inicio").style.display="none";
 document.getElementById("carta").style.display="block";
-
 document.getElementById("musica").play();
-
 }
 
-/* corazones */
-
 function crearCorazon(){
-
 const corazon=document.createElement("div");
-
 corazon.classList.add("corazon");
-
 corazon.innerHTML="❤";
-
 corazon.style.left=Math.random()*100+"vw";
-
 corazon.style.fontSize=(Math.random()*20+15)+"px";
-
 corazon.style.animationDuration=(Math.random()*3+3)+"s";
-
 document.body.appendChild(corazon);
 
 setTimeout(()=>{
 corazon.remove();
 },6000);
-
 }
 
 setInterval(crearCorazon,300);
 
-/* estrellas */
-
 for(let i=0;i<120;i++){
-
 const estrella=document.createElement("div");
-
 estrella.classList.add("estrella");
-
 estrella.style.top=Math.random()*100+"vh";
 estrella.style.left=Math.random()*100+"vw";
-
 document.body.appendChild(estrella);
-
 }
 
 </script>
