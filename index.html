@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Para alguien especial</title>
+
+<style>
+
+body{
+margin:0;
+padding:0;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background: radial-gradient(circle at top,#1a1a2e,#0f3460,#000);
+font-family:'Segoe UI',sans-serif;
+overflow:hidden;
+color:white;
+text-align:center;
+}
+
+/* estrellas */
+
+.estrella{
+position:absolute;
+width:2px;
+height:2px;
+background:white;
+animation: parpadeo 2s infinite alternate;
+}
+
+@keyframes parpadeo{
+from{opacity:0.2;}
+to{opacity:1;}
+}
+
+/* inicio */
+
+.inicio{
+z-index:10;
+}
+
+button{
+padding:15px 35px;
+font-size:20px;
+border:none;
+border-radius:40px;
+background:#ff4d6d;
+color:white;
+cursor:pointer;
+transition:0.3s;
+}
+
+button:hover{
+transform:scale(1.1);
+}
+
+/* carta */
+
+.carta{
+display:none;
+max-width:650px;
+background: rgba(0,0,0,0.6);
+padding:40px;
+border-radius:20px;
+animation: aparecer 2s ease;
+}
+
+@keyframes aparecer{
+from{
+opacity:0;
+transform:scale(0.8);
+}
+to{
+opacity:1;
+transform:scale(1);
+}
+}
+
+/* corazones */
+
+.corazon{
+position:absolute;
+color:#ff4d6d;
+font-size:20px;
+animation: subir 6s linear infinite;
+}
+
+@keyframes subir{
+0%{
+transform:translateY(100vh);
+opacity:0;
+}
+50%{
+opacity:1;
+}
+100%{
+transform:translateY(-10vh);
+opacity:0;
+}
+}
+
+h1{
+font-size:38px;
+}
+
+p{
+font-size:20px;
+line-height:1.7;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="inicio" id="inicio">
+
+<h1>💌 Tengo algo especial para ti</h1>
+
+<button onclick="abrirCarta()">Abrir mensaje</button>
+
+</div>
+
+<div class="carta" id="carta">
+
+<h1>Para alguien muy especial ❤️</h1>
+
+<p>
+A veces la vida nos regala personas  
+que llegan sin avisar,  
+pero poco a poco se convierten  
+en lo más bonito de nuestros días.
+</p>
+
+<p>
+Tú eres una de esas personas.  
+Alguien que con su sonrisa  
+puede cambiar un momento cualquiera  
+en algo especial.
+</p>
+
+<p>
+Gracias por lo que haces por mí,  
+por tu tiempo, tu cariño  
+y por cada pequeño detalle  
+que demuestra lo increíble que eres.
+</p>
+
+<p>
+Tal vez las palabras nunca alcancen  
+para explicar todo lo que siento,
+pero hay algo que quiero que sepas:
+</p>
+
+<h2>Te quiero mucho ❤️</h2>
+
+<p>
+Y agradezco al destino  
+por haber puesto a alguien  
+tan especial en mi camino.
+</p>
+
+</div>
+
+<audio id="musica" loop>
+<source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+
+/* abrir carta */
+
+function abrirCarta(){
+
+document.getElementById("inicio").style.display="none";
+document.getElementById("carta").style.display="block";
+
+document.getElementById("musica").play();
+
+}
+
+/* corazones */
+
+function crearCorazon(){
+
+const corazon=document.createElement("div");
+
+corazon.classList.add("corazon");
+
+corazon.innerHTML="❤";
+
+corazon.style.left=Math.random()*100+"vw";
+
+corazon.style.fontSize=(Math.random()*20+15)+"px";
+
+corazon.style.animationDuration=(Math.random()*3+3)+"s";
+
+document.body.appendChild(corazon);
+
+setTimeout(()=>{
+corazon.remove();
+},6000);
+
+}
+
+setInterval(crearCorazon,300);
+
+/* estrellas */
+
+for(let i=0;i<120;i++){
+
+const estrella=document.createElement("div");
+
+estrella.classList.add("estrella");
+
+estrella.style.top=Math.random()*100+"vh";
+estrella.style.left=Math.random()*100+"vw";
+
+document.body.appendChild(estrella);
+
+}
+
+</script>
+
+</body>
+</html>
